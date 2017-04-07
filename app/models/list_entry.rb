@@ -1,0 +1,2 @@
+class ListEntry < ApplicationRecord
+end
