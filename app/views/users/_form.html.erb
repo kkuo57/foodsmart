@@ -1,0 +1,35 @@
+<%= form_for @user, html: {multipart: true} do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2 class='text-center'><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control', required: true, maxlength: 200 %>
+
+    <%= f.label :location %>
+    <%= f.text_field :location, class: 'form-control', required: true, maxlength: 5, minlength: 5 %>
+
+    <%= f.label :email %>
+    <%= f.email_field :email, class: 'form-control', required: true, maxlength: 100 %>
+
+    <%= f.label :password %>
+    <% if @user.password_digest.nil? %>
+      <%= f.password_field :password, class: 'form-control', required: true, maxlength: 25, minlength: 6 %>
+      <%= f.label "Password Confirmation" %>
+      <%= f.password_field :password_confirmation, class: 'form-control', required: true, maxlength: 25 %><br>
+    <% else %>
+      <%= f.password_field :password, class: 'form-control', maxlength: 25, minlength: 6 %>
+       <%= f.label "Password Confirmation" %>
+      <%= f.password_field :password_confirmation, class: 'form-control', maxlength: 25 %><br>
+    <% end %>
+
+    <%= f.submit 'OK', class: "btn btn-default" %>
+<% end %>
