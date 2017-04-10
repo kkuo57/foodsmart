@@ -14,3 +14,38 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).on('ready', function() {
+  console.log('1')
+  getFood();
+
+  function getFood(){
+    console.log('2')
+    $.ajax({
+      method: "POST",
+      url: "https://api.foodfacts.com/ci/api/foodfacts/food_products_per_search_term/",
+      data: {login: 'bbobberson12@gmail.com',
+        password: '$5074Foo',
+        search_term: 'broccoli',
+        per_page: 1,
+        page: 1,
+        sort_by: '_score:desc'
+        },
+      success: onSuccess,
+      error: onError
+    });
+  }
+
+  function onSuccess(json) {
+    console.log('3')
+    console.log(json);
+    $(".results").append()
+  }
+
+  function onError(xhr, status, errorThrown) {
+    console.log('4')
+    console.log("Error: " + errorThrown);
+    console.log("Status: " + status);
+    console.dir(xhr);
+  }
+});

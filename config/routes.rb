@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  root to: 'application#home'
+
   resources :users,   except: [:index] do
     resources :lists, except: [:index]
   end
