@@ -1,0 +1,57 @@
+<header>
+  <div class='container'>
+    <ul class="navbar-nav list-unstyled pull-left">
+      <% if logged_in? %>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Link
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <%= link_to current_user do %>
+                Profile
+              <% end %>
+            </li>
+            <li>
+              <%= link_to edit_user_path(current_user) do %>
+                Settings
+              <% end %>
+            </li>
+            <li>
+              <%= link_to foods_index_path do %>
+                Food
+              <% end %>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <%= link_to "Log out", logout_path, method: "delete" %>
+            </li>
+          </ul>
+        </li>
+      <% else %>
+        <div class='before-logged-in'>
+          <%= link_to "Log in", login_path %>  |  <%= link_to "Sign up", new_user_path %>
+        </div>
+      <% end %>
+    </ul>
+  </div>
+
+  <h1 class='text-center'>
+    <%= link_to root_path do %>
+      FoodSmart
+    <% end %>
+  </h1>
+
+  <% flash.each do |name, message| %>
+    <% if flash[:success] %>
+      <div class="flash text-center bg-success">
+        <%= message %>
+      </div>
+    <% else %>
+      <div class="flash text-center bg-error">
+        <%= message %>
+      </div>
+    <% end %>
+  <% end %>
+
+</header><br>

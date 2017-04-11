@@ -14,3 +14,9 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).on('ready', function() {
+  setTimeout(function(){
+    $('.flash').slideToggle(300)
+  },4000)
+});
