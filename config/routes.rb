@@ -1,10 +1,20 @@
 Rails.application.routes.draw do
-  
-  root to: 'application#home'
 
-  resources :users,   except: [:index] do
-    resources :lists, except: [:index]
+  get 'foods/index'
+
+  get 'foods/import'
+
+  root to: 'foods#index'
+
+  resources     :users,        except:[:index] do
+    resources   :lists,        except:[:index], shallow: true
   end
+
+  resources     :foods,        only:  [:show, :index] do
+    collection { post :import }
+  end
+
+  resources :list_entries, only:  [:show, :create, :destroy, :update]
 
   get     '/login',    to: 'sessions#new'
   post    '/login',    to: 'sessions#create'

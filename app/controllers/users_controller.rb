@@ -26,8 +26,10 @@ class UsersController < ApplicationController
     else
       if @user.save
         log_in(@user)
+        flash[:success] = "User created successfully!"
         redirect_to user_path(@user)
       else
+        flash[:error] = "Not Valid Account Info"
         redirect_to root_path
       end
     end
@@ -36,17 +38,21 @@ class UsersController < ApplicationController
   def update
     @user = User.find_by_id(params[:id])
     if params[:user][:password_confirmation] != user_params[:password]
+      flash[:error] = "Passwords don't match"
       redirect_to edit_user_path(@user)
     elsif user_params[:password].empty?
+      flash[:error] = "Please Enter a Password"
       redirect_to edit_user_path(@user)
     else
       @user.update(user_params)
+      flash[:success] = "Profile Updated"
       redirect_to user_path(@user)
     end
   end
 
   def destroy
     @user.destroy
+    flash[:success] = "User Deleted"
     redirect_to root_path
   end
 
