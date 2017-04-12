@@ -24,7 +24,7 @@ class ListsController < ApplicationController
     list[:user_id] = params[:user_id]
     @list = List.new(list)
     if @list.save
-      redirect_to user_path(current_user)
+      redirect_to new_list_list_entry_path(@list)
     else
       flash[:error] = "Invalid List Info"
       redirect_to user_path(current_user)

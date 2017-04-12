@@ -1,4 +1,4 @@
-<%= form_for [list_entry.user, list_entry] do |f| %>
+<%= form_for [list_entry.list, list_entry] do |f| %>
   <% if list_entry.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(list_entry.errors.count, "error") %> prohibited this list_entry from being saved:</h2>
@@ -12,7 +12,10 @@
   <% end %>
 
     <%= f.label :quantity %>
-    <%= f.text_field :quantity, class: 'form-control', required: true, maxlength: 20 %>
+      <%= f.text_field :quantity, class: 'form-control', required: true, maxlength: 20 %>
+      <%= form_tag food_path(:id) do %>
+        <%= autocomplete_field_tag 'name', '', autocomplete_food_name_foods_path, :size => 10, :id_element => '#food_id', required: true %>
+        <input type="hidden" id="food_id">
     <%= f.submit 'Submit', class: "btn btn-default" %>
     <% end %>
 

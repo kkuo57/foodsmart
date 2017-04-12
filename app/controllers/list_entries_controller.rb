@@ -1,5 +1,9 @@
 class ListEntriesController < ApplicationController
 
+  def new
+    @list_entry = ListEntry.new(list_id: params[:list_id])
+  end
+
   def create
     list_entry = ListEntry.new(list_entries_params)
     if logged_in? && list_entry.save
@@ -19,6 +23,12 @@ class ListEntriesController < ApplicationController
       list_entry.update(list_entries_params)
       redirect_to user_path(current_user)
     end
+  end
+
+  def destroy
+    @list_entry.destroy
+    flash[:success] = "Deleted List Successfully"
+    redirect_to user_path(@list_entry.list.user)
   end
 
   private

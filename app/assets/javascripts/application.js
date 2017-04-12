@@ -22,7 +22,9 @@ $(document).on('ready', function() {
     $('.flash').slideToggle(300)
   },4000)
 
-  $('#my_autocomplete_field').bind('railsAutocomplete.select', function(event, data){
-  console.log("hi")
-  });
+  $('#search-id-button').on('click', function(e){
+    e.preventDefault();
+    var s = $('#food_id').attr("value");
+    window.location.href = "/foods/" + s;
+  })
 });
