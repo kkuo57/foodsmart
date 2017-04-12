@@ -1,6 +1,5 @@
 class Food < ApplicationRecord
   require 'csv'
-  searchkick word_start: [:name]
 
   def self.import(file)
     CSV.foreach('db/en.openfoodfacts.org.products.csv', headers: true, col_sep: "\t") do |row|

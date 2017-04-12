@@ -21,4 +21,8 @@ $(document).on('ready', function() {
   setTimeout(function(){
     $('.flash').slideToggle(300)
   },4000)
+
+  $('#my_autocomplete_field').bind('railsAutocomplete.select', function(event, data){
+  console.log("hi")
+  });
 });

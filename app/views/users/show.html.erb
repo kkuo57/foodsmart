@@ -2,11 +2,22 @@
 
   <div class='col-xs-12 col-sm-4 col-md-4'>
     <% if @user.image.blank? %>
-      <%= image_tag('http://sunfieldfarm.org/wp-content/uploads/2014/02/profile-placeholder.png') %>
+      <%= image_tag('http://sunfieldfarm.org/wp-content/uploads/2014/02/profile-placeholder.png', class: 'profile-pic') %>
     <% else %>
-      <%= image_tag(@user.image) %>
+      <%= image_tag(@user.image, class: 'profile-pic') %>
     <% end %>
+
+  <p class ='name'>
+    <%= @user.name %>
+  </p>
+
+  <p class='lists'>
+    Zip Code: <%= @user.location %><br><br>
+    <%= link_to "Add List", new_user_list_path(@user), class: 'btn btn-default' %>
+  </p>
+
   </div>
+
 
   <div class='col-xs-12 col-sm-12 col-md-8'>
     <div class='wrapper'>
