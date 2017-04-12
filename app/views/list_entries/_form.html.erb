@@ -11,12 +11,13 @@
     </div>
   <% end %>
 
-    <%= f.label :quantity %>
-      <%= f.text_field :quantity, class: 'form-control', required: true, maxlength: 20 %>
-      <%= form_tag food_path(:id) do %>
-        <%= autocomplete_field_tag 'name', '', autocomplete_food_name_foods_path, :size => 10, :id_element => '#food_id', required: true %>
-        <input type="hidden" id="food_id">
-    <%= f.submit 'Submit', class: "btn btn-default" %>
-    <% end %>
+  
+  <%= f.text_field :quantity, class: 'form-control', required: true, maxlength: 20, id: 'quantity-bar', placeholder: 'Quantity' %>
+  <%= form_tag food_path(:id) do %>
+    <%= autocomplete_field_tag 'name', '', autocomplete_food_name_foods_path, :size => 10, :id_element => '#list_entry_food', required: true, id: 'autocomplete-bar', placeholder: 'Choose Food' %>
+    <%= f.hidden_field :food_id, value: "list_entry_food" %>
+  <%= f.submit 'Last Add', class: "btn btn-default" %>
+  <%= f.submit 'Add Another', class: "btn btn-default" %>
+  <% end %>
 
 <% end %>

@@ -54,4 +54,12 @@
     <% end %>
   <% end %>
 
+  <div class="col-sm-4 col-sm-offset-4 search-bar">
+    <%= form_tag food_path(:id) do %>
+      <%= autocomplete_field_tag 'name', '', autocomplete_food_name_foods_path, :size => 10, :id_element => '#food_id', id: 'autocomplete-bar', placeholder: 'Food Products' %>
+      <input type="hidden" id="food_id">
+      <%= submit_tag 'Search', class: "btn btn-default", id: "search-id-button" %>
+    <% end %>
+  </div>
+
 </header><br>

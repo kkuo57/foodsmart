@@ -27,4 +27,5 @@ $(document).on('ready', function() {
     var s = $('#food_id').attr("value");
     window.location.href = "/foods/" + s;
   })
+  
 });
