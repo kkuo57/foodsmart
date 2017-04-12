@@ -1,0 +1,20 @@
+<%= form_for [list_entry.user, list_entry] do |f| %>
+  <% if list_entry.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(list_entry.errors.count, "error") %> prohibited this list_entry from being saved:</h2>
+
+      <ul>
+      <% list_entry.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <%= f.label :quantity %>
+    <%= f.text_field :quantity, class: 'form-control', required: true, maxlength: 20 %>
+
+
+    <%= f.submit 'Submit', class: "btn btn-default" %>
+
+<% end %>

@@ -21,3 +21,6 @@
 
 # Ignore database file
 /db/en.openfoodfacts.org.products.csv
+
+# Ignore altered database file
+/db/.en.openfoodfacts.org.products.csv.swp

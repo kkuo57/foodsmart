@@ -20,8 +20,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if params[:user][:password_confirmation] != user_params[:password]
+      flash[:error] = "Passwords don't match"
       redirect_to new_user_path
     elsif user_params[:password].empty?
+      flash[:error] = "Please enter a password"
       redirect_to new_user_path
     else
       if @user.save
