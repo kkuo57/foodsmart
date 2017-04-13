@@ -24,3 +24,6 @@
 
 # Ignore altered database file
 /db/.en.openfoodfacts.org.products.csv.swp
+
+# Ignore DS store
+.DS_store

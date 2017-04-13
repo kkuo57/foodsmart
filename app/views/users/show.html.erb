@@ -13,8 +13,8 @@
 
   <p class='lists'>
     <%= ZipCodes.identify(@user.location)[:city] %>, <%= ZipCodes.identify(@user.location)[:state_code] %><br><br>
-    <%= link_to "Edit Profile", edit_user_path(@user), class: 'btn btn-default' %><br><br>
-    <%= link_to "Add List", new_user_list_path(@user), class: 'btn btn-default' %>
+    <%= link_to "Edit Profile", edit_user_path(@user), class: 'btn btn-success btn-block' %><br>
+    <%= link_to "Add List", new_user_list_path(@user), class: 'btn btn-success btn-block' %>
   </p>
 
   </div>

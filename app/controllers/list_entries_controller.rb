@@ -9,21 +9,28 @@ class ListEntriesController < ApplicationController
     list_entry[:food_id] = params[:list_entry][:food_id]
     list_entry[:quantity] = params[:list_entry][:quantity]
     if logged_in? && list_entry.save
-      flash[:success] = "Added Successfully"
-      redirect_to user_path(current_user)
+      flash[:success] = "Item Added Successfully"
+      redirect_to(:back)
     else
       flash[:error] = "Unable to add item"
-      redirect_to root_path
+      redirect_to user_path(current_user)
     end
+  end
+
+  def edit
+    @list_entry = ListEntry.find(params[:id])
   end
 
   def update
     list_entry = ListEntry.where(id: params[:id]).take
-    if !logged_in?  || list.current_user != list.user
+    if !logged_in?  || current_user != list_entry.list.user
       flash[:error] = "Nope"
       redirect_to root_path
     else
-      list_entry.update(list_entries_params)
+      list_entry[:quantity] = params[:list_entry][:quantity]
+      list_entry[:food_id] = params[:list_entry][:food_id]
+      list_entry.save()
+      flash[:success] = "Item Updated"
       redirect_to user_path(current_user)
     end
   end

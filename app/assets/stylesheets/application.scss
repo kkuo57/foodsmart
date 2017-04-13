@@ -16,26 +16,57 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import url('https://fonts.googleapis.com/css?family=Lato|Roboto');
+@import url('https://fonts.googleapis.com/css?family=Archivo+Black|Lato');
 
-
-h1 {
+h1  {
   text-align: center;
-  font-family: 'Roboto', sans-serif;
+  margin-bottom: 20px;
+  font-size: 50px;
+  font-family: 'Archivo Black', sans-serif!important;
+
+}
+
+h2 {
+  font-family: 'Archivo Black', sans-serif!important;
+}
+
+a {
   text-decoration: none;
+  color: black;
+
+}
+
+a:hover {
+  color: #000000!important;
+  text-decoration: none!important;  
 }
 
 body {
   font-family: 'Lato', sans-serif;
+  background-image: url(http://68.media.tumblr.com/3b3c7c45e433ea62401105c923ee6a48/tumblr_n5njdj6BEK1r3lazmo3_1280.jpg);
+  background-size: cover;
+  background-repeat: repeat-x;
+}
+
+.buttons {
+  margin-right: 31%;
+}
+
+.container {
+  margin-top: 5%;
 }
 
 .profile-pic {
-  max-width: 300px;
+  max-width: 360px;
+  box-shadow: 1px 5px 10px rgba(6, 2, 2, 0.26);
+  padding: 7px;
+  background: white;
 }
 
 .name {
   font-size: 4vh;
   font-family: 'Lato', sans-serif;
+  text-align: center;
 }
 
 ul.pull-left {
@@ -44,16 +75,26 @@ ul.pull-left {
 }
 
 .footer {
-  margin-top: 25vh;
+  margin-top: 37vh;
 }
 
-.search-bar {
+.tag-line {
+  font-size: 45px;
+  margin-top: 12%;
+}
+
+.search-bar, #new_entry_list {
   text-align: center;
 }
 
 #quantity-bar {
-  width: 100px;
+  width: 300px;
 }
+
+.new_list_entry {
+  margin-left: 24%;
+}
+
 
 #autocomplete-bar {
   width: 300px;
@@ -62,9 +103,52 @@ ul.pull-left {
 .list-title {
   font-family: 'Lato', sans-serif;
   text-align: center;
+  font-size: 17px;
+  a {
+    color: white;
+  }
 }
 
 .list {
   font-family: 'Lato', sans-serif;
-  width: 100px;
+  width: 385px;
+  box-shadow: 1px 5px 10px rgba(6, 2, 2, 0.26);
+  background-color: rgb(75, 160, 75);
+
+}
+
+.shopping-list {
+  box-shadow: 1px 5px 10px rgba(6, 2, 2, 0.26);
+  background-color: rgb(75, 160, 75);
+  color: white;
+  width: 300px;
+  margin-left: 24%;
+}
+
+.wrapper {
+  margin-left: 20%;
+  margin-top: -3%;
+}
+
+.food-item-list {
+  a {
+    color: white;
+  }
+}
+
+#new_list {
+  margin-left: 25%;
+}
+
+p {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#food-content {
+  text-align: center;
+}
+
+.list-items {
+  padding-bottom: 1%;
 }

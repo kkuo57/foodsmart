@@ -4,6 +4,7 @@ Save all your grocery shopping lists in a convenient way!
 
 ## Installation
 Install all the Ruby Gems used
+
 `bundle`
 
 ### Ruby Gems Used
@@ -45,3 +46,4 @@ Go to localhost:3000 to play around with the app!
 * Getting a Favorite list automatically generated and put to the side
 * Getting a better database so scores can be implemented and search will be better
 * Making it more of a single page app
+* Being able to add to a specific list from the food show page

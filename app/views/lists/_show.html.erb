@@ -1,11 +1,25 @@
 <% @user.lists.each do |list| %>
   <div class="list">
     <%= content_tag :div, class: ["list"] do %>
-      <div class="list-title"><%= list.name %></div>
+      <div class="list-title">
+        <p><%= link_to new_list_list_entry_path(list) do %><%= list.name %>
+        <% end %> 
+          <%= link_to edit_list_path(list) do %>
+            <span class='glyphicon glyphicon-pencil'></span> 
+          <% end %>
+          </p>
+      </div>
       <% list.list_entries.each do |entry| %>
         <div class="list-items">
-          <ul>
-            <li class="list-unstyled"><%= entry.quantity %> <%= entry.food.name %></li>
+          <ul class='food-item-list'>
+            <li class="list-unstyled">
+              <input type="checkbox">
+              <%= link_to food_path(entry.food) do %>
+                <%= entry.quantity %> <%= entry.food.name %>
+              <% end %> 
+              <%= link_to edit_list_entry_path(entry) do %>
+                <span class='glyphicon glyphicon-edit'></span> 
+              <% end %></li>
           </ul>
         </div>
       <% end %>
