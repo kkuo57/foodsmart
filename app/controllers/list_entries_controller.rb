@@ -6,7 +6,10 @@ class ListEntriesController < ApplicationController
 
   def create
     list_entry = ListEntry.new(list_entries_params)
+    list_entry[:food_id] = params[:list_entry][:food_id]
+    list_entry[:quantity] = params[:list_entry][:quantity]
     if logged_in? && list_entry.save
+      flash[:success] = "Added Successfully"
       redirect_to user_path(current_user)
     else
       flash[:error] = "Unable to add item"

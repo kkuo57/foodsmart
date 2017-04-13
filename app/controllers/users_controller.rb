@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :is_current_user, only: [:show, :edit, :update, :destroy]
   
   def show
-    @user=User.find_by_id(params[:id])
+    @user = User.find_by_id(params[:id])
     if !logged_in?
       redirect_to root_path
     end

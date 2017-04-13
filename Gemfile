@@ -25,7 +25,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 # jquery autocomplete
 gem 'jquery-ui-rails'
-
+# jquery autocomplete
 gem 'rails-jquery-autocomplete'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
@@ -37,6 +37,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 # bootstrap
 gem 'bootstrap-sass'
+# zipcodes to address
+gem 'zip-codes'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

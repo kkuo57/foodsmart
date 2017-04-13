@@ -2,7 +2,9 @@
   <section>
     <%= content_tag :div, class: ["list"] do %>
       <h3><%= list.name %></h3>
-      
+      <% list.list_entries.each do |entry| %>
+        <%= entry.quantity %> <%= entry.food.name %>
+      <% end %>
     <% end %>
   </section>
 <% end %>
