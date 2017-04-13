@@ -1,10 +1,14 @@
 <% @user.lists.each do |list| %>
-  <section>
+  <div class="list">
     <%= content_tag :div, class: ["list"] do %>
-      <h3><%= list.name %></h3>
+      <div class="list-title"><%= list.name %></div>
       <% list.list_entries.each do |entry| %>
-        <%= entry.quantity %> <%= entry.food.name %>
+        <div class="list-items">
+          <ul>
+            <li class="list-unstyled"><%= entry.quantity %> <%= entry.food.name %></li>
+          </ul>
+        </div>
       <% end %>
     <% end %>
-  </section>
+  </div>
 <% end %>

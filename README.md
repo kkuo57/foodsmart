@@ -1,24 +1,47 @@
-# README
+# FoodSmart
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Save all your grocery shopping lists in a convenient way!
 
-Things you may want to cover:
+## Installation
+Install all the Ruby Gems used
+`bundle`
 
-* Ruby version
+### Ruby Gems Used
+* bcrypt
+* bootstrap-sass
+* rails-jquery-autocomplete
+* zip-codes
 
-* System dependencies
+## Usage
+Make sure all the migrations are up.
 
-* Configuration
+`rails db:migrate:status`
 
-* Database creation
+If not, then please run
 
-* Database initialization
+`rails db:migrate`
 
-* How to run the test suite
+Now let's seed the database
 
-* Services (job queues, cache servers, search engines, etc.)
+`rails db:seed`
 
-* Deployment instructions
+Set up the server
 
-* ...
+`rails s`
+
+Go to localhost:3000 to play around with the app!
+
+## Technologies Used
+* HTML
+* CSS
+* JavaScript
+* Ruby on Rails
+* jQuery
+* Bootstrap
+* PostgreSQL
+
+## Future Features
+* More mobile friendly design
+* Getting a Favorite list automatically generated and put to the side
+* Getting a better database so scores can be implemented and search will be better
+* Making it more of a single page app
